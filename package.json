@@ -4,7 +4,8 @@
   "description": "chat demo app for test websockets",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "nodemon":"nodemon --exec"
   },
   "keywords": [
     "websockets",
@@ -14,5 +15,8 @@
   "license": "ISC",
   "dependencies": {
     "ws": "^7.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }
