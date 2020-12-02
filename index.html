@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+  </head>
+  <body>
+    <p>
+      <button id="btnIngresar">Ingresar</button>
+    </p>
+    <form name="publish">
+      <p>
+        <label>
+          User:
+          <input type="text" name="user" />
+        </label>
+      </p>
+      <p>
+        <label>
+          Message:
+          <input type="text" name="message" maxlength="50" />
+        </label>
+      </p>
+      <input type="submit" value="Send" />
+    </form>
+    <div id="messages"></div>
+    <script>
+      let url = "ws://localhost:8080/ws";
+
+      let socket;
+
+      // send message from the form
+      document.forms.publish.onsubmit = function () {
+        let outgoingMessage = JSON.stringify({
+          event: "new-message",
+          payload:{
+            user: this.user.value,
+            message: this.message.value,
+          }
+        });
+
+        socket.send(outgoingMessage);
+        return false;
+      };
+
+      const btnIngresar = document.getElementById("btnIngresar");
+      btnIngresar.addEventListener("click", () => {
+        socket = new WebSocket(url);
+        // handle incoming messages
+        socket.onmessage = function (event) {
+          showMessage(event.data);
+        };
+
+        socket.onclose = (event) => console.log(`Closed ${event.code}`);
+
+        // show message in div#messages
+        function showMessage(datastr) {
+          let messageElem = document.createElement("div");
+          let data = JSON.parse(datastr);
+          switch (data.event) {
+            case "open":
+              console.log(data.payload.message);
+              break;
+            case "new-message":
+              messageElem.textContent = `${data.payload.user}: ${data.payload.message}`;
+              document.getElementById("messages").append(messageElem);
+              break;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
