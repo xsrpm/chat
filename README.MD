@@ -1,5 +1,21 @@
+# ¿Para que es este repositorio?
 
-To run:
+Lado Cliente y Servidor para un chat.
+
+# Caracteristicas
+Permite identificar a la persona por un nombre
+
+# Dependencias de Desarrollo
+
+* IDE: Visual Studio Code
+* Nodejs 10 o mayor
+
+# Dependencias de Ejecución
+
+* Nodejs 10 o mayor
+
+# Ejecución
 
     npm start
-Then open: http://localhost:8080 in the browser
+
+Dirigirse a localhost:8080 en el navegador.
