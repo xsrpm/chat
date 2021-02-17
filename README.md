@@ -1,9 +1,6 @@
 # ¿Para que es este repositorio?
 
-Lado Cliente y Servidor para un chat.
-
-# Caracteristicas
-Permite identificar a la persona por un nombre
+Servidor backend para chat (broadcast server)
 
 # Dependencias de Desarrollo
 
@@ -18,4 +15,4 @@ Permite identificar a la persona por un nombre
 
     npm start
 
-Dirigirse a localhost:8080 en el navegador.
+En el navegador dirigirse a localhost:8080 (en entorno de desarrollo) o al dominio de publico (en repl.it)
