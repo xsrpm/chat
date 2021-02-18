@@ -15,4 +15,11 @@ Servidor backend para chat (broadcast server)
 
     npm start
 
-En el navegador dirigirse a localhost:8080 (en entorno de desarrollo) o al dominio de publico (en repl.it)
+Normalmente en local el endpoint será accedido:
+
+    let url = "ws://localhost:8080/ws";
+Normalmente en produccion el endpoint será accedido:
+
+    let url = "wss://chat-backend.cemp2703.repl.co/ws";
+
+El protocolo wss se usa entre direcciones seguras (https)
