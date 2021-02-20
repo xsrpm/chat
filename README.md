@@ -23,3 +23,6 @@ Normalmente en produccion el endpoint será accedido:
     let url = "wss://chat-backend.cemp2703.repl.co/ws";
 
 El protocolo wss se usa entre direcciones seguras (https)
+
+# Fuente
+https://javascript.info/websocket
