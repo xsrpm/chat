@@ -26,3 +26,7 @@ El protocolo wss se usa entre direcciones seguras (https)
 
 # Fuente
 https://javascript.info/websocket
+
+docker build -t cemp2703/chat-backend:1.0.0 .
+
+docker run --rm -it -p 8080:8080/tcp cemp2703/chat-backend:1.0.0
